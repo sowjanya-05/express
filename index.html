@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<section id="std" style="display:flex;">
+		
+	</section>
+	<script type="text/javascript">
+		fetch("http://localhost:3000/students-list")
+		.then((res)=>{
+			return res.json()
+		})
+		.then((updatedjson)=>{
+			console.log(updatedjson)
+			display(updatedjson)
+		})
+		function display(students){
+			var block=document.getElementById("std")
+			for(var i=0;i<students.length;i++){
+				block.innerHTML+=`
+				<div>
+				<p>${students[i].id}</p>
+				<p>${students[i].stdname}</p>
+				<p>${students[i].stdclass}</p>
+				</div>
+				`
+			}
+		}
+	</script>
+</body>
+</html>
